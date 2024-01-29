@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from web.models import *
 
+def login(request):
+    return render(request, "login.html")
+
 def inicio(request):
     datos = Organizacion.objects.all()
     return render(request, "inicio.html",{'datos':datos})
@@ -15,9 +18,3 @@ def agregar(request, id):
 
 def descargar(request, id):
     pass
-
-def login(request):
-    if request.method == 'GET':
-        return redirect('login')
-    elif request.method == 'POST':
-        pass
